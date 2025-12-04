@@ -1,0 +1,11 @@
+/* Delivery Pages Styles */
+
+.delivery-dashboard,
+.available-deliveries,
+.active-deliveries,
+.delivery-history {
+  padding: var(--spacing-2xl) 0;
+  min-height: calc(100vh - 180px);
+}
+
+/* Reuse stats-grid styles from vendor pages */
