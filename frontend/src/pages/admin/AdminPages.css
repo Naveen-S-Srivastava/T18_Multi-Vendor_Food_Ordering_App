@@ -1,0 +1,11 @@
+/* Admin Pages Styles */
+
+.admin-dashboard,
+.user-management,
+.admin-restaurants,
+.coupon-management {
+  padding: var(--spacing-2xl) 0;
+  min-height: calc(100vh - 180px);
+}
+
+/* Reuse stats-grid styles */
