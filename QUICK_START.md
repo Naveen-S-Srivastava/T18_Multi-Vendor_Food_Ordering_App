@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 T18 Multi-Vendor Food Ordering App - Quick Start
 
 ## ⚡ 5-Minute Setup
@@ -56,10 +57,123 @@ Open browser: `http://localhost:3000`
   "phone": "9876543230",
   "role": "delivery"
 }
+=======
+# 🚀 FoodHub - Quick Reference Guide
+
+## 📦 Installation & Setup
+
+### Option 1: Docker (Easiest)
+```bash
+cd D:\FullStack
+docker-compose up --build
+```
+- Frontend: http://localhost:3000
+- Backend: http://localhost:5000
+- MongoDB: localhost:27017
+
+### Option 2: Local Development
+```bash
+# Terminal 1 - Backend
+cd server
+npm install
+npm run dev
+
+# Terminal 2 - Frontend  
+cd client
+npm install
+npm start
 ```
 
 ---
 
+## 🔑 Test Accounts
+
+After starting the app, create test accounts:
+
+1. **Customer Account**
+   - Go to http://localhost:3000/register
+   - Choose role: "Customer"
+   - Complete registration
+
+2. **Vendor Account**
+   - Go to http://localhost:3000/register
+   - Choose role: "Vendor"
+   - Complete registration
+
+---
+
+## 📱 App Usage
+
+### As a Customer
+1. ✅ Register/Login
+2. ✅ Browse restaurants on home page
+3. ✅ Search by restaurant name or city
+4. ✅ Click restaurant to see menu
+5. ✅ Add items to cart
+6. ✅ Adjust quantities
+7. ✅ Place order
+8. ✅ View order confirmation
+
+### As a Vendor
+1. ✅ Register/Login as vendor
+2. ✅ Create restaurant (POST /api/restaurant)
+3. ✅ Add menu items (POST /api/menu)
+4. ✅ Manage restaurant info
+5. ✅ Monitor orders
+
+---
+
+## 🔌 API Endpoints Cheat Sheet
+
+### Authentication
+```
+POST /api/auth/register
+POST /api/auth/login
+```
+
+### Restaurants
+```
+GET    /api/restaurant              # Get all
+GET    /api/restaurant/:id          # Get one
+POST   /api/restaurant              # Create
+PUT    /api/restaurant/:id          # Update
+DELETE /api/restaurant/:id          # Delete
+```
+
+### Menu Items
+```
+GET    /api/menu/restaurant/:restaurantId   # Get restaurant menu
+GET    /api/menu/:id                        # Get item
+POST   /api/menu                            # Create
+PUT    /api/menu/:id                        # Update
+DELETE /api/menu/:id                        # Delete
+```
+
+### Orders
+```
+GET    /api/order                           # Get all
+GET    /api/order/:id                       # Get specific
+POST   /api/order                           # Create new
+PUT    /api/order/:id                       # Update status
+GET    /api/order/customer/:customerId      # Get customer orders
+```
+
+### Vendors
+```
+GET    /api/vendor              # Get all vendors
+GET    /api/vendor/:id          # Get vendor
+PUT    /api/vendor/:id          # Update vendor
+```
+
+### Health
+```
+GET    /api/health              # Server status
+>>>>>>> 1b04881a (Last Commit)
+```
+
+---
+
+<<<<<<< HEAD
 ## 🎟️ Test Coupons
 
 Create via API or use these codes once implemented:
@@ -266,10 +380,44 @@ GOOGLE_MAPS_API_KEY=your_key
 SMTP_HOST=smtp.gmail.com
 SMTP_USER=your_email
 SMTP_PASS=your_password
+=======
+## 🗄️ Database Collections
+
+**Users:** name, email, password, role, phone, address, city, isActive
+**Restaurants:** name, description, vendorId, cuisine, rating, address, city, phone, deliveryTime, deliveryFee, minOrderValue, image, isActive
+**MenuItems:** name, description, restaurantId, price, category, image, isAvailable, rating
+**Orders:** orderId, customerId, restaurantId, items, totalAmount, deliveryFee, status, deliveryAddress, paymentMethod, paymentStatus, specialInstructions
+
+---
+
+## 🛠️ Useful Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Start in development
+npm run dev          # Backend
+npm start            # Frontend
+
+# Docker commands
+docker-compose up --build      # Start all services
+docker-compose down            # Stop all services
+docker-compose logs -f         # View logs
+
+# Clear and reinstall
+rm -r node_modules package-lock.json
+npm install
+
+# Check ports
+netstat -ano | findstr :3000   # Frontend
+netstat -ano | findstr :5000   # Backend
+>>>>>>> 1b04881a (Last Commit)
 ```
 
 ---
 
+<<<<<<< HEAD
 ## 📊 Project Stats
 
 - **Backend Files:** 40+
@@ -325,3 +473,94 @@ SMTP_PASS=your_password
 **Status:** ✅ PRODUCTION-READY (Demo Mode)
 **Created:** December 2024
 **Version:** 1.0.0
+=======
+## 📂 File Organization
+
+```
+Backend (Express.js + MongoDB)
+├── server.js ............ Main entry point
+├── models/ .............. Database schemas
+├── routes/ .............. API endpoints
+├── middleware/ .......... Custom middleware
+└── controllers/ ......... Business logic (expandable)
+
+Frontend (React)
+├── App.js ............... Main component
+├── pages/ ............... Full page components
+├── components/ .......... Reusable UI components
+├── services/ ............ API integration
+└── public/ .............. Static files
+```
+
+---
+
+## ✨ Key Features
+
+- 🔐 JWT Authentication
+- 📱 Fully Responsive Design
+- 🔍 Real-time Search
+- 🛒 Shopping Cart
+- 📦 Order Management
+- 🐳 Docker Ready
+- 📄 Comprehensive Docs
+- ⚡ Fast & Lightweight
+
+---
+
+## 🐛 Quick Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| MongoDB not connecting | Check MONGODB_URI in .env |
+| Port 3000 in use | Change React port or kill process |
+| Port 5000 in use | Change Express port or kill process |
+| CORS errors | Verify frontend API_URL matches backend |
+| Dependencies missing | Delete node_modules and run npm install |
+| Docker build fails | Check Docker is installed and running |
+
+---
+
+## 📚 Resources
+
+- Express.js: https://expressjs.com
+- React: https://react.dev
+- MongoDB: https://www.mongodb.com
+- Mongoose: https://mongoosejs.com
+- Docker: https://www.docker.com
+
+---
+
+## 🎯 Next Development Steps
+
+1. Add payment integration (Stripe/PayPal)
+2. Implement email notifications
+3. Add rating & review system
+4. Create admin dashboard
+5. Add real-time tracking
+6. Implement push notifications
+7. Create mobile app
+
+---
+
+## 📞 Common Questions
+
+**Q: How do I change the port?**
+A: Update PORT in server/.env and REACT_APP_API_URL in client/.env
+
+**Q: Can I use MongoDB Atlas?**
+A: Yes, replace MONGODB_URI with your Atlas connection string
+
+**Q: How do I deploy?**
+A: Use Docker Compose or deploy to cloud (AWS, Heroku, etc.)
+
+**Q: How do I add more features?**
+A: Add routes, models, and components following existing patterns
+
+---
+
+**Version:** 1.0.0
+**Last Updated:** December 2024
+**Status:** Production Ready ✅
+
+Happy Coding! 🚀
+>>>>>>> 1b04881a (Last Commit)
